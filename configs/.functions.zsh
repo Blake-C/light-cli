@@ -2,9 +2,9 @@
 
 # The global variables and aliases are used in the below functions
 # They are also available in the cli container globally
-SERVER_DIR='/var/www/public_html'
-DATABASE_BACKUPS_DIR='/var/www/data/backups'
-EJECTED_DIR='/var/www/ejected'
+SERVER_DIR='/home/webdev/www/public_html'
+DATABASE_BACKUPS_DIR='/home/webdev/www/data/backups'
+EJECTED_DIR='/home/webdev/www/ejected'
 
 alias root="cd $SERVER_DIR"
 alias theme="cd $SERVER_DIR/wp-content/themes/wp-foundation-six"
