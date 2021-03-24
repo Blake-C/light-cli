@@ -1,7 +1,10 @@
 FROM alpine:3.13.2
 
 RUN apk update \
-	&& apk add curl git vim which wget sudo shadow openssl -v --no-cache \
+	&& apk add tzdata \
+	&& cp /usr/share/zoneinfo/America/Chicago /etc/localtime
+
+RUN apk add curl git vim which wget sudo shadow openssl -v --no-cache \
 	&& sed -i "/# %wheel ALL=(ALL) ALL/c\\%wheel ALL=(ALL) ALL" /etc/sudoers \
 	&& useradd -ms /bin/sh --password $(openssl passwd root) webdev \
 	&& usermod -aG wheel webdev
@@ -44,4 +47,4 @@ WORKDIR /home/webdev/www/public_html
 COPY --chown=webdev configs/.zshrc /home/webdev/.zshrc
 COPY --chown=webdev configs/.functions.zsh /home/webdev/.functions.zsh
 
-RUN echo root | sudo -S apk del curl vim which wget shadow openssl
+RUN echo root | sudo -S apk del curl vim which wget shadow openssl tzdata
