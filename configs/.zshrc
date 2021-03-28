@@ -105,4 +105,6 @@ alias composer="php /usr/local/bin/composer"
 alias wp="php /usr/local/bin/wp"
 alias l="ls -lagh --group-directories-first"
 
+PATH=~/.local/bin/:$PATH
+
 source ~/.functions.zsh

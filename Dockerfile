@@ -18,7 +18,8 @@ RUN echo root | sudo -S apk update \
 	&& echo root | chsh -s $(which zsh) && zsh
 
 RUN echo root | sudo -S apk add --update nodejs npm \
-	&& echo root | sudo -S npm i gulp -g
+	&& npm config set prefix ~/.local \
+	&& npm i gulp -g
 
 RUN echo root | sudo -S apk add php8 \
 	&& echo root | sudo -S apk add \
