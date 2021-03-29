@@ -100,7 +100,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias php="/usr/bin/php8"
 alias composer="php /usr/local/bin/composer"
 alias wp="php /usr/local/bin/wp"
 alias l="ls -lagh --group-directories-first"

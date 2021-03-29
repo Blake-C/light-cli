@@ -19,7 +19,7 @@ RUN echo root | sudo -S apk update \
 
 RUN echo root | sudo -S apk add --update nodejs npm \
 	&& npm config set prefix ~/.local \
-	&& npm i gulp -g
+	&& npm i browser-sync -g
 
 RUN echo root | sudo -S apk add php8 \
 	&& echo root | sudo -S apk add \
@@ -31,9 +31,11 @@ RUN echo root | sudo -S apk add php8 \
 	php8-simplexml \
 	php8-curl \
 	php8-xmlreader \
-	php8-mysqli
+	php8-mysqli \
+	imagemagick \
+	&& echo root | sudo mv /usr/bin/php8 /usr/bin/php
 
-RUN wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php8 -- --quiet \
+RUN wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet \
 	&& echo root | sudo -S mv composer.phar /usr/local/bin/composer \
 	&& curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
 	&& chmod +x wp-cli.phar \
