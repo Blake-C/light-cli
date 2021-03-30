@@ -19,7 +19,8 @@ RUN echo root | sudo -S apk update \
 
 RUN echo root | sudo -S apk add --update nodejs npm \
 	&& npm config set prefix ~/.local \
-	&& npm i browser-sync -g
+	&& npm config set store-dir ~/.pnpm-store \
+	&& npm i browser-sync pnpm -g
 
 RUN echo root | sudo -S apk add php8 \
 	&& echo root | sudo -S apk add \
