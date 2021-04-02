@@ -51,4 +51,4 @@ WORKDIR /home/webdev/www/public_html
 COPY --chown=webdev configs/.zshrc /home/webdev/.zshrc
 COPY --chown=webdev configs/.functions.zsh /home/webdev/.functions.zsh
 
-RUN echo root | sudo -S apk del curl vim which wget shadow openssl tzdata
+RUN echo root | sudo -S apk del vim which wget shadow openssl tzdata
