@@ -90,22 +90,22 @@ wp-init() {
     	sed -i "/$TABLE_PREFIX/c\\$TABLE_PREFIX_NEW" ./wp-config.php
 
 		echo "\n================================================================="
-		echo "Running NPM & Gulp "
+		echo "Running PNPM & Gulp "
 		echo "================================================================="
 
     	# cd into theme
 		cd $SERVER_DIR/wp-content/themes/wp-foundation-six
 
-		echo "\nRunning npm install"
+		echo "\nRunning pnpm install"
 		if [ -d "$SERVER_DIR/wp-content/themes/wp-foundation-six/node_modules" ]; then
 			rm -rf node_modules
-			npm install
+			pnpm install
 		else
-			npm install
+			pnpm install
 		fi
 
-		echo "\nRunning Gulp"
-		gulp --skip_lint
+		echo "\nPNPM Build"
+		pnpm run build
 
 		echo "\n================================================================="
 		echo "Running WP-CLI for WP Defaults"
@@ -199,12 +199,12 @@ wp-eject() {
 
 			if [ -d "$SERVER_DIR/wp-content/themes/wp-foundation-six/node_modules" ]; then
 				rm -rf node_modules
-				npm install
+				pnpm install
 			else
-				npm install
+				pnpm install
 			fi
 
-			gulp --build --skip_lint --silent
+			pnpm run build
 
 			cd $EJECTED_DIR/$EJECTED_PROJECT_DIR
 
