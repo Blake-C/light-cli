@@ -42,13 +42,14 @@ RUN wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93
 	&& chmod +x wp-cli.phar \
 	&& echo root | sudo -S mv wp-cli.phar /usr/local/bin/wp
 
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUN echo root | sudo -S apk update \
+	&& echo root | sudo -S apk add rsync
 
 RUN mkdir /home/webdev/www && mkdir /home/webdev/www/public_html
 
 WORKDIR /home/webdev/www/public_html
 
-COPY --chown=webdev configs/.zshrc /home/webdev/.zshrc
-COPY --chown=webdev configs/.functions.zsh /home/webdev/.functions.zsh
+COPY --chown=webdev .zshrc /home/webdev/.zshrc
+COPY --chown=webdev .config /home/webdev/.config
 
 RUN echo root | sudo -S apk del vim which wget shadow openssl tzdata
