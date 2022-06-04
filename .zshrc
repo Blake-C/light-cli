@@ -4,6 +4,7 @@
 
 export DOTCONFIG="$HOME/.config"
 export TERM="xterm-256color"
+export PAGER="more"
 
 ##################################
 ### Options
