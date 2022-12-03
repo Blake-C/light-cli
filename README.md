@@ -2,8 +2,22 @@
 
 This repository contains general command line tools for local web development. This repo is not meant and should never be used in a production environment.
 
-The starting point of this docker image is alpine:3.13.2.
+## Linux: alpine:3.16.3
 
-User: webdev
+## CLI User:
 
-Password: root
+-   **User**: webdev
+-   **Password**: root
+
+## Packages
+
+| Package      | Version  |
+| ------------ | -------- |
+| php          | v8.0.26  |
+| node         | v16.17.1 |
+| npm          | v8.10.0  |
+| pnpm         | v7.17.1  |
+| zsh          | v5.8.1   |
+| browser-sync | v2.27.10 |
+| composer     | v2.4.4   |
+| mysql-client | v15.1    |

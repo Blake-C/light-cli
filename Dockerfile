@@ -1,11 +1,14 @@
-FROM alpine:3.15.4
+FROM alpine:3.16.3
+
+# alpine:3.16.3 = php8.0
+# alpine:3.17.0 = php8.2, can't move until wpcs supports php 8
 
 RUN apk update \
 	&& apk add tzdata \
 	&& cp /usr/share/zoneinfo/America/Chicago /etc/localtime
 
 RUN apk add curl git vim which wget sudo shadow openssl -v --no-cache \
-	&& sed -i "/# %wheel ALL=(ALL) ALL/c\\%wheel ALL=(ALL) ALL" /etc/sudoers \
+	&& sed -i "/# %wheel ALL=(ALL:ALL) ALL/c\\ %wheel ALL=(ALL:ALL) ALL" /etc/sudoers \
 	&& useradd -ms /bin/sh --password $(openssl passwd root) webdev \
 	&& usermod -aG wheel webdev
 
@@ -18,9 +21,7 @@ RUN echo root | sudo -S apk update \
 	&& echo root | chsh -s $(which zsh) && zsh
 
 RUN echo root | sudo -S apk add --update nodejs npm \
-	&& npm config set prefix ~/.local \
-	&& npm config set store-dir ~/.pnpm-store \
-	&& npm i browser-sync pnpm -g
+	&& echo root | sudo -S npm i browser-sync pnpm -g
 
 RUN echo root | sudo -S apk add php8 \
 	&& echo root | sudo -S apk add \
@@ -35,6 +36,8 @@ RUN echo root | sudo -S apk add php8 \
 	php8-mysqli \
 	imagemagick \
 	&& echo root | sudo mv /usr/bin/php8 /usr/bin/php
+
+RUN echo root | sudo -S apk add mysql-client
 
 RUN wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet \
 	&& echo root | sudo -S mv composer.phar /usr/local/bin/composer \
