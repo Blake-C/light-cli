@@ -2,7 +2,9 @@
 
 This repository contains general command line tools for local web development. This repo is not meant and should never be used in a production environment.
 
-## Linux: alpine:3.16.3
+## Linux:
+
+-   alpine:3.16.3
 
 ## CLI User:
 
