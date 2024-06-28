@@ -1,7 +1,4 @@
-FROM alpine:3.16.3
-
-# alpine:3.16.3 = php8.0
-# alpine:3.17.0 = php8.2, can't move until wpcs supports php 8
+FROM alpine:3.19.2
 
 RUN apk update \
 	&& apk add tzdata \
@@ -21,21 +18,22 @@ RUN echo root | sudo -S apk update \
 	&& echo root | chsh -s $(which zsh) && zsh
 
 RUN echo root | sudo -S apk add --update nodejs npm \
-	&& echo root | sudo -S npm i browser-sync pnpm -g
+	&& echo root | sudo -S npm i browser-sync pnpm -g \
+	&& pnpm config set store-dir /home/webdev/node/.local/share/pnpm/store
 
-RUN echo root | sudo -S apk add php8 \
+RUN echo root | sudo -S apk add php82 \
 	&& echo root | sudo -S apk add \
-	php8-phar \
-	php8-mbstring \
-	php8-openssl \
-	php8-tokenizer \
-	php8-xmlwriter \
-	php8-simplexml \
-	php8-curl \
-	php8-xmlreader \
-	php8-mysqli \
-	imagemagick \
-	&& echo root | sudo mv /usr/bin/php8 /usr/bin/php
+		php82-phar \
+		php82-mbstring \
+		php82-openssl \
+		php82-tokenizer \
+		php82-xmlwriter \
+		php82-simplexml \
+		php82-curl \
+		php82-xmlreader \
+		php82-mysqli \
+		imagemagick \
+	&& echo root | sudo mv /usr/bin/php82 /usr/bin/php
 
 RUN echo root | sudo -S apk add mysql-client
 
