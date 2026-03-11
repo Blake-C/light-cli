@@ -4,23 +4,23 @@ This repository contains general command line tools for local web development. T
 
 ## Linux:
 
--   alpine:3.19.2
+- alpine:3.23.3
 
 ## CLI User:
 
--   **User**: webdev
--   **Password**: root
+- **User**: webdev
+- **Password**: root
 
 ## Packages
 
 | Package      | Version  |
 | ------------ | -------- |
-| php          | v8.2.20  |
-| node         | v20.12.1 |
-| npm          | v10.2.5  |
-| pnpm         | v9.4.0   |
+| php          | v8.3.30  |
+| node         | v24.13.0 |
+| npm          | v11.6.3  |
+| pnpm         | v10.32.1 |
 | zsh          | v5.9     |
-| browser-sync | v3.0.2   |
-| composer     | v2.7.7   |
-| mysql-client | v15.1    |
-| imagemagick  | v7.1.1   |
+| browser-sync | v3.0.4   |
+| composer     | v2.9.5   |
+| mysql-client | v15.2    |
+| imagemagick  | v7.1.2   |

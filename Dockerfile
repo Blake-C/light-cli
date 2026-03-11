@@ -1,4 +1,4 @@
-FROM alpine:3.19.2
+FROM alpine:3.23.3
 
 RUN apk update \
 	&& apk add tzdata \
@@ -21,19 +21,19 @@ RUN echo root | sudo -S apk add --update nodejs npm \
 	&& echo root | sudo -S npm i browser-sync pnpm -g \
 	&& pnpm config set store-dir /home/webdev/node/.local/share/pnpm/store
 
-RUN echo root | sudo -S apk add php82 \
+RUN echo root | sudo -S apk add php83 \
 	&& echo root | sudo -S apk add \
-		php82-phar \
-		php82-mbstring \
-		php82-openssl \
-		php82-tokenizer \
-		php82-xmlwriter \
-		php82-simplexml \
-		php82-curl \
-		php82-xmlreader \
-		php82-mysqli \
+		php83-phar \
+		php83-mbstring \
+		php83-openssl \
+		php83-tokenizer \
+		php83-xmlwriter \
+		php83-simplexml \
+		php83-curl \
+		php83-xmlreader \
+		php83-mysqli \
 		imagemagick \
-	&& echo root | sudo mv /usr/bin/php82 /usr/bin/php \
+	&& echo root | sudo mv /usr/bin/php83 /usr/bin/php \
 	&& echo root | sudo -S apk add --no-cache imagemagick-jpeg
 
 RUN echo root | sudo -S apk add mysql-client
