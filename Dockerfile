@@ -33,7 +33,8 @@ RUN echo root | sudo -S apk add php82 \
 		php82-xmlreader \
 		php82-mysqli \
 		imagemagick \
-	&& echo root | sudo mv /usr/bin/php82 /usr/bin/php
+	&& echo root | sudo mv /usr/bin/php82 /usr/bin/php \
+	&& echo root | sudo -S apk add --no-cache imagemagick-jpeg
 
 RUN echo root | sudo -S apk add mysql-client
 

@@ -23,3 +23,4 @@ This repository contains general command line tools for local web development. T
 | browser-sync | v3.0.2   |
 | composer     | v2.7.7   |
 | mysql-client | v15.1    |
+| imagemagick  | v7.1.1   |
