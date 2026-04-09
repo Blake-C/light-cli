@@ -145,10 +145,11 @@ wp-init() {
 
 		# Activate default theme
 		wp theme activate wp-foundation-six --allow-root
+		wp plugin activate redis-cache --allow-root
 
 		#Setup main navigation
 		wp menu create "Main Navigation" --allow-root
-		wp menu location assign main-navigation primary --allow-root
+		# wp menu location assign main-navigation primary --allow-root
 
 		# add pages to navigation
 		export IFS=" "
