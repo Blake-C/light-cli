@@ -21,19 +21,19 @@ RUN echo root | sudo -S apk add --update nodejs npm \
 	&& echo root | sudo -S npm i browser-sync pnpm -g \
 	&& pnpm config set store-dir /home/webdev/node/.local/share/pnpm/store
 
-RUN echo root | sudo -S apk add php83 \
+RUN echo root | sudo -S apk add php84 \
 	&& echo root | sudo -S apk add \
-		php83-phar \
-		php83-mbstring \
-		php83-openssl \
-		php83-tokenizer \
-		php83-xmlwriter \
-		php83-simplexml \
-		php83-curl \
-		php83-xmlreader \
-		php83-mysqli \
+		php84-phar \
+		php84-mbstring \
+		php84-openssl \
+		php84-tokenizer \
+		php84-xmlwriter \
+		php84-simplexml \
+		php84-curl \
+		php84-xmlreader \
+		php84-mysqli \
 		imagemagick \
-	&& echo root | sudo mv /usr/bin/php83 /usr/bin/php \
+	&& echo root | sudo mv /usr/bin/php84 /usr/bin/php \
 	&& echo root | sudo -S apk add --no-cache imagemagick-jpeg
 
 RUN echo root | sudo -S apk add mysql-client
