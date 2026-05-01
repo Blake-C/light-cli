@@ -18,7 +18,8 @@ RUN echo root | sudo -S apk update \
 	&& echo root | chsh -s $(which zsh) && zsh
 
 RUN echo root | sudo -S apk add --update nodejs npm \
-	&& echo root | sudo -S npm i browser-sync pnpm -g \
+	&& echo root | sudo -S npm i browser-sync corepack -g \
+	&& echo root | sudo -S corepack enable pnpm \
 	&& pnpm config set store-dir /home/webdev/node/.local/share/pnpm/store
 
 RUN echo root | sudo -S apk add php84 \
