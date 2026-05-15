@@ -19,6 +19,7 @@ RUN echo root | sudo -S apk update \
 
 RUN echo root | sudo -S apk add --update nodejs npm \
 	&& echo root | sudo -S npm i browser-sync corepack -g \
+	&& echo root | sudo -S corepack prepare pnpm@11.1.2 --activate \
 	&& echo root | sudo -S corepack enable pnpm \
 	&& pnpm config set store-dir /home/webdev/node/.local/share/pnpm/store
 

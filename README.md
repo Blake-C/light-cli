@@ -18,7 +18,7 @@ This repository contains general command line tools for local web development. T
 | php          | v8.3.30  |
 | node         | v24.13.0 |
 | npm          | v11.6.3  |
-| pnpm         | v10.32.1 |
+| pnpm         | v11.1.2  |
 | zsh          | v5.9     |
 | browser-sync | v3.0.4   |
 | composer     | v2.9.5   |
