@@ -1,4 +1,4 @@
-FROM alpine:3.23.4
+FROM alpine:3.24.0
 
 RUN apk update \
 	&& apk add tzdata \
@@ -17,10 +17,14 @@ RUN echo root | sudo -S apk update \
 	&& echo root | sudo -S apk add zsh \
 	&& echo root | chsh -s $(which zsh) && zsh
 
+# Pin pnpm via Corepack. COREPACK_DEFAULT_TO_LATEST=0 stops Corepack from
+# silently upgrading to its bundled "latest" pnpm when no version is active, so
+# the version activated below is exactly what runs at build and runtime.
+ENV COREPACK_DEFAULT_TO_LATEST=0
 RUN echo root | sudo -S apk add --update nodejs npm \
 	&& echo root | sudo -S npm i browser-sync corepack -g \
-	&& echo root | sudo -S corepack prepare pnpm@11.1.2 --activate \
 	&& echo root | sudo -S corepack enable pnpm \
+	&& corepack prepare pnpm@11.6.0 --activate \
 	&& pnpm config set store-dir /home/webdev/node/.local/share/pnpm/store
 
 RUN echo root | sudo -S apk add php84 \
