@@ -1,4 +1,4 @@
-FROM alpine:3.24.0
+FROM alpine:3.24.1
 
 RUN apk update \
 	&& apk add tzdata \
@@ -24,7 +24,7 @@ ENV COREPACK_DEFAULT_TO_LATEST=0
 RUN echo root | sudo -S apk add --update nodejs npm \
 	&& echo root | sudo -S npm i browser-sync corepack -g \
 	&& echo root | sudo -S corepack enable pnpm \
-	&& corepack prepare pnpm@11.6.0 --activate \
+	&& corepack prepare pnpm@11.10.0 --activate \
 	&& pnpm config set store-dir /home/webdev/node/.local/share/pnpm/store
 
 RUN echo root | sudo -S apk add php84 \
