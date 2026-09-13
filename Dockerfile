@@ -17,14 +17,16 @@ RUN echo root | sudo -S apk update \
 	&& echo root | sudo -S apk add zsh \
 	&& echo root | chsh -s $(which zsh) && zsh
 
-# Pin pnpm via Corepack. COREPACK_DEFAULT_TO_LATEST=0 stops Corepack from
-# silently upgrading to its bundled "latest" pnpm when no version is active, so
-# the version activated below is exactly what runs at build and runtime.
+# COREPACK_DEFAULT_TO_LATEST=0 stops Corepack from looking up the latest pnpm on the
+# npm registry, so the version activated below is the one that runs at build and runtime.
 ENV COREPACK_DEFAULT_TO_LATEST=0
+# Alpine's npm package trails npm releases and bundles tar, sigstore, and pacote versions with known
+# vulnerabilities, so it is used only to install a pinned global npm and is then removed.
 RUN echo root | sudo -S apk add --update nodejs npm \
-	&& echo root | sudo -S npm i browser-sync corepack -g \
+	&& echo root | sudo -S npm i npm@11.19.1 browser-sync corepack -g \
+	&& echo root | sudo -S apk del npm \
 	&& echo root | sudo -S corepack enable pnpm \
-	&& corepack prepare pnpm@11.10.0 --activate \
+	&& corepack prepare pnpm@12.3.4 --activate \
 	&& pnpm config set store-dir /home/webdev/node/.local/share/pnpm/store
 
 RUN echo root | sudo -S apk add php84 \

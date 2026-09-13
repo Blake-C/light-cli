@@ -15,12 +15,13 @@ This repository contains general command line tools for local web development. T
 
 | Package      | Version  |
 | ------------ | -------- |
-| php          | v8.4.23  |
-| node         | v24.17.0 |
-| npm          | v11.12.1 |
-| pnpm         | v11.10.0 |
+| php          | v8.4.25  |
+| node         | v24.18.1 |
+| npm          | v11.19.1 |
+| pnpm         | v12.3.4  |
 | zsh          | v5.9     |
 | browser-sync | v3.0.4   |
-| composer     | v2.10.2  |
+| composer     | v2.10.3  |
+| wp-cli       | v2.12.0  |
 | mysql-client | v11.8.8  |
 | imagemagick  | v7.1.2   |
