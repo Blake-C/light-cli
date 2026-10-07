@@ -40,6 +40,19 @@ RUN echo root | sudo -S apk add php84 \
 		php84-curl \
 		php84-xmlreader \
 		php84-mysqli \
+		php84-pdo \
+		php84-pdo_mysql \
+		php84-gd \
+		php84-zip \
+		php84-intl \
+		php84-dom \
+		php84-xml \
+		php84-ctype \
+		php84-iconv \
+		php84-fileinfo \
+		php84-session \
+		php84-posix \
+		php84-sodium \
 		imagemagick \
 	&& echo root | sudo mv /usr/bin/php84 /usr/bin/php \
 	&& echo root | sudo -S apk add --no-cache imagemagick-jpeg
