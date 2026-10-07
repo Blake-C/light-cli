@@ -53,6 +53,13 @@ RUN echo root | sudo -S apk add php84 \
 		php84-session \
 		php84-posix \
 		php84-sodium \
+		php84-bcmath \
+		php84-exif \
+		php84-pcntl \
+		php84-pdo_sqlite \
+		php84-sqlite3 \
+		php84-pecl-redis \
+		php84-pecl-imagick \
 		imagemagick \
 	&& echo root | sudo mv /usr/bin/php84 /usr/bin/php \
 	&& echo root | sudo -S apk add --no-cache imagemagick-jpeg

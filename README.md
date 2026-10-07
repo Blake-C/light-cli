@@ -28,25 +28,32 @@ This repository contains general command line tools for local web development. T
 
 ## PHP extensions
 
-Drush, Drupal's `composer create-project`, and the Joomla CLI installer need the database, image, archive, and XML extensions in this list, so the image can run CLI commands for WordPress, Joomla, and Drupal.
+The image has the extensions that wp-cli, Drush, the Joomla CLI installer, and the Composer installs for Laravel, Symfony, CodeIgniter, CakePHP, Craft CMS, Statamic, and Grav need. Craft CMS requires bcmath, and Laravel uses pdo_sqlite for its default database and its test suite.
 
+- bcmath
 - ctype
 - curl
 - dom
+- exif
 - fileinfo
 - gd
 - iconv
+- imagick
 - intl
 - mbstring
 - mysqli
 - openssl
+- pcntl
 - pdo
 - pdo_mysql
+- pdo_sqlite
 - phar
 - posix
+- redis
 - session
 - simplexml
 - sodium
+- sqlite3
 - tokenizer
 - xml
 - xmlreader
