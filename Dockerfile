@@ -42,6 +42,7 @@ RUN echo root | sudo -S apk add php84 \
 		php84-mysqli \
 		php84-pdo \
 		php84-pdo_mysql \
+		php84-pdo_pgsql \
 		php84-gd \
 		php84-zip \
 		php84-intl \
