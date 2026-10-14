@@ -1,4 +1,4 @@
-FROM alpine:3.24.1
+FROM alpine:3.24.2
 
 RUN apk update \
 	&& apk add tzdata \
@@ -23,10 +23,10 @@ ENV COREPACK_DEFAULT_TO_LATEST=0
 # Alpine's npm package trails npm releases and bundles tar, sigstore, and pacote versions with known
 # vulnerabilities, so it is used only to install a pinned global npm and is then removed.
 RUN echo root | sudo -S apk add --update nodejs npm \
-	&& echo root | sudo -S npm i npm@11.19.1 browser-sync corepack -g \
+	&& echo root | sudo -S npm i npm@11.21.0 browser-sync corepack -g \
 	&& echo root | sudo -S apk del npm \
 	&& echo root | sudo -S corepack enable pnpm \
-	&& corepack prepare pnpm@12.3.4 --activate \
+	&& corepack prepare pnpm@12.10.1 --activate \
 	&& pnpm config set store-dir /home/webdev/node/.local/share/pnpm/store
 
 RUN echo root | sudo -S apk add php84 \
